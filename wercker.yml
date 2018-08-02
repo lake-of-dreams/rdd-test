@@ -26,9 +26,11 @@ test3:
         
 test4:
   steps:
-    - script: |
-        cd /tmp
-        curl -L https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1604-3.6.6.tgz 
-        tar xzf mongodb-linux-x86_64-ubuntu1604-3.6.6.tgz
-        ln -s mongodb-linux-x86_64-3.6.6 mongo 
-        mongo       
+    - script:
+        name: check mongo
+        code:  |
+          cd /tmp
+          curl -L https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1604-3.6.6.tgz 
+          tar xzf mongodb-linux-x86_64-ubuntu1604-3.6.6.tgz
+          ln -s mongodb-linux-x86_64-3.6.6 mongo 
+          mongo       
