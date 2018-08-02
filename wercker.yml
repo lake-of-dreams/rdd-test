@@ -30,7 +30,7 @@ test-mongo-1:
     - script:
         name: check mongo 1
         code:  |
-          mongo --host MONGO_HOST_1
+          mongo --host $MONGO_HOST_1
           
 test-mongo-2:
   box: mongo
@@ -38,7 +38,7 @@ test-mongo-2:
     - script:
         name: check mongo 2
         code:  |
-          mongo --host MONGO_HOST_2
+          mongo --host $MONGO_HOST_2
           
 test-mongo-3:
   box: mongo
@@ -46,4 +46,4 @@ test-mongo-3:
     - script:
         name: check mongo 3
         code:  |
-          mongo --host MONGO_HOST_3          
+          mongo --host $MONGO_HOST_3          
