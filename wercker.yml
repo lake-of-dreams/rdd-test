@@ -35,4 +35,5 @@ test4:
           ln -s mongodb-linux-x86_64-3.6.6 mongo
           ls -lahrt 
           export PATH=/tmp/mongo/bin:$PATH
+          ls -lahrt /tmp/mongo/bin
           mongo --version       
