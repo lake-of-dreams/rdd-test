@@ -34,4 +34,5 @@ test4:
           tar xzf mongodb-linux-x86_64-ubuntu1604-3.6.6.tgz
           ln -s mongodb-linux-x86_64-3.6.6 mongo
           ls -lahrt 
-          ./mongo       
+          export PATH=/tmp/mongo/bin:$PATH
+          mongo --version       
