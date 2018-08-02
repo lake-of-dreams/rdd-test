@@ -1,2 +1,3 @@
 # rdd-test
 run
+test
