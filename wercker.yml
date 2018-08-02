@@ -1,6 +1,6 @@
-box: ubuntu:16.04
+box: alpine
  
-test1:
+test-kube-1:
   steps:
     - kubectl:
         server: $KUBERNETES_MASTER_1
@@ -8,7 +8,7 @@ test1:
         insecure-skip-tls-verify: true
         command: get pods
 
-test2:
+test-kube-2:
   steps:
     - kubectl:
         server: $KUBERNETES_MASTER_2
@@ -16,7 +16,7 @@ test2:
         insecure-skip-tls-verify: true
         command: get pods
 
-test3:
+test-kube-3:
   steps:
     - kubectl:
         server: $KUBERNETES_MASTER_3
@@ -24,24 +24,26 @@ test3:
         insecure-skip-tls-verify: true
         command: get pods
         
-test4:
+test-mongo-1:
   box: mongo
   steps:
     - script:
-        name: check mongo
+        name: check mongo 1
         code:  |
-          #apt-get update
-          #apt-get -y install libcurl4 openssl
-          #apt-get -y install curl
-          #cd /tmp
-          #curl -L https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1604-3.6.6.tgz --output /tmp/mongodb-linux-x86_64-ubuntu1604-3.6.6.tgz 
-          #tar xzf mongodb-linux-x86_64-ubuntu1604-3.6.6.tgz
-          #ln -s mongodb-linux-x86_64-ubuntu1604-3.6.6 mongo
-          #ls -lahrt 
-          #export PATH=/tmp/mongo/bin:$PATH
-          #ls -lahrt /tmp/mongo/bin
-          #apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
-          #echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-4.0.list
-          #apt-get update
-          #apt-get install -y mongodb-org
-          mongo --version       
+          mongo --host MONGO_HOST_1
+          
+test-mongo-2:
+  box: mongo
+  steps:
+    - script:
+        name: check mongo 2
+        code:  |
+          mongo --host MONGO_HOST_2
+          
+test-mongo-3:
+  box: mongo
+  steps:
+    - script:
+        name: check mongo 3
+        code:  |
+          mongo --host MONGO_HOST_3          
