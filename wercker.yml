@@ -22,4 +22,13 @@ test3:
         server: $KUBERNETES_MASTER_3
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
-        command: get pods                
+        command: get pods
+        
+test4:
+  steps:
+    - script: |
+        cd /tmp
+        curl -L https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1604-3.6.6.tgz 
+        tar xzf mongodb-linux-x86_64-ubuntu1604-3.6.6.tgz
+        ln -s mongodb-linux-x86_64-3.6.6 mongo 
+        mongo       
