@@ -1,4 +1,4 @@
-box: ubuntu
+box: ubuntu:16.04
  
 test1:
   steps:
@@ -29,14 +29,18 @@ test4:
     - script:
         name: check mongo
         code:  |
-          apt-get update
-          apt-get -y install libcurl4 openssl
-          apt-get -y install curl
-          cd /tmp
-          curl -L https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1604-3.6.6.tgz --output /tmp/mongodb-linux-x86_64-ubuntu1604-3.6.6.tgz 
-          tar xzf mongodb-linux-x86_64-ubuntu1604-3.6.6.tgz
-          ln -s mongodb-linux-x86_64-ubuntu1604-3.6.6 mongo
-          ls -lahrt 
-          export PATH=/tmp/mongo/bin:$PATH
-          ls -lahrt /tmp/mongo/bin
+          #apt-get update
+          #apt-get -y install libcurl4 openssl
+          #apt-get -y install curl
+          #cd /tmp
+          #curl -L https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1604-3.6.6.tgz --output /tmp/mongodb-linux-x86_64-ubuntu1604-3.6.6.tgz 
+          #tar xzf mongodb-linux-x86_64-ubuntu1604-3.6.6.tgz
+          #ln -s mongodb-linux-x86_64-ubuntu1604-3.6.6 mongo
+          #ls -lahrt 
+          #export PATH=/tmp/mongo/bin:$PATH
+          #ls -lahrt /tmp/mongo/bin
+          apt-key -y adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
+          echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-4.0.list
+          apt-get -y update
+          apt-get install -y mongodb-org
           mongo --version       
