@@ -1,6 +1,7 @@
 box: alpine
  
 test-kube-1:
+  docker: true
   steps:
     - kubectl:
         server: $KUBERNETES_MASTER_1
@@ -9,6 +10,7 @@ test-kube-1:
         command: get pods
 
 test-kube-2:
+  docker: true
   steps:
     - kubectl:
         server: $KUBERNETES_MASTER_2
@@ -17,6 +19,7 @@ test-kube-2:
         command: get pods
 
 test-kube-3:
+  docker: true
   steps:
     - kubectl:
         server: $KUBERNETES_MASTER_3
@@ -25,6 +28,7 @@ test-kube-3:
         command: get pods
         
 test-mongo-1:
+  docker: true
   box: mongo
   steps:
     - script:
@@ -33,6 +37,7 @@ test-mongo-1:
           mongo --host $MONGO_HOST_1
           
 test-mongo-2:
+  docker: true
   box: mongo
   steps:
     - script:
@@ -41,6 +46,7 @@ test-mongo-2:
           mongo --host $MONGO_HOST_2
           
 test-mongo-3:
+  docker: true
   box: mongo
   steps:
     - script:
