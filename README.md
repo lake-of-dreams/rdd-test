@@ -1,4 +1,4 @@
 # rdd-test
 run
 test
-try all
+test both stage and prod
