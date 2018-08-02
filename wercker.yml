@@ -29,7 +29,7 @@ test4:
     - script:
         name: check mongo
         code:  |
-          apt-get - y install curl
+          apt-get -y install curl
           apt-get -y install libcurl3 openssl
           cd /tmp
           curl -L https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1604-3.6.6.tgz --output /tmp/mongodb-linux-x86_64-ubuntu1604-3.6.6.tgz 
