@@ -1,20 +1,24 @@
 box: golang:1.10
+ 
 test1:
-  - kubectl:
+  steps:
+    - kubectl:
         server: $KUBERNETES_MASTER_1
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
         command: get pods
 
 test2:
-  - kubectl:
+  steps:
+    - kubectl:
         server: $KUBERNETES_MASTER_2
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
         command: get pods
 
 test3:
-  - kubectl:
+  steps:
+    - kubectl:
         server: $KUBERNETES_MASTER_3
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
